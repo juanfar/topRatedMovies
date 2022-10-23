@@ -12,4 +12,8 @@ export class TopRatedComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  refreshSelection() {
+    console.log('refreshed');
+  }
+
 }

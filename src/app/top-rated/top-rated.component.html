@@ -1,1 +1,19 @@
-<p>top-rated works!</p>
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>EnjoyMovies</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="refresh" aria-hidden="false" aria-label="Example heart icon"
+        matTooltip="Borrar Seleccion de edad" (click)="refreshSelection()">cached</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+
+<main>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>1</mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list>
+</main>
