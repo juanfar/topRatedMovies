@@ -2,7 +2,16 @@
   <figure class="movie-card__header">
     <img loading="lazy" [src]="movieData.poster" [alt]="movieData.title">
   </figure>
-  <div class="movie-card__average">{{movieData.average}}</div>
+  <!-- <div class="movie-card__average">{{movieData.average.toString().replace('.', '')}}</div> -->
+  <div class="movie-card__average">
+    <span>{{movieData.average * 10}}</span>
+    <round-progress
+    [current]="movieData.average * 10"
+    [max]="100"
+    [radius]="25"
+    [stroke]="3"
+    [color]="'#21d07a'">
+    </round-progress></div>
   <div class="movie-card__footer">
     <span class="title">{{movieData.title}}</span>
     <span class="release_date">{{movieData.release_date}}</span>

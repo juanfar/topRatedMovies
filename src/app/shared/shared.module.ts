@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MoviesCardListComponent } from './components/movies-card-list/movies-card-list.component';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 
 
@@ -13,7 +14,8 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
   ],
   imports: [
     CommonModule,
-    InfiniteScrollModule 
+    InfiniteScrollModule,
+    RoundProgressModule
   ],
   exports: [
     MovieCardComponent,
