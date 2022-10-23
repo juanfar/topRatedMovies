@@ -2,10 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const domain = 'api.themoviedb.org/3';
+const imageDomain = 'image.tmdb.org/t/p/w500';
 
 export const environment = {
   production: false,
   url: 'https://' + domain + '/movie',
+  imageUrl: 'https://' + imageDomain,
   appKey: 'b194194954a1e2b3515bed02aa0f04c0'
 };
 

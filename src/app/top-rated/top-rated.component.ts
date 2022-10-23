@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../shared/models';
 import { TopRatedService } from './services/top-rated.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { TopRatedService } from './services/top-rated.service';
   styleUrls: ['./top-rated.component.scss']
 })
 export class TopRatedComponent implements OnInit {
+
+  movies!: Movie[];
 
   constructor(
     private topRatedService: TopRatedService
@@ -17,7 +20,10 @@ export class TopRatedComponent implements OnInit {
   }
 
   getTopRatedMovies() {
-    this.topRatedService.getTopRatedMovies().subscribe(console.log);
+    this.topRatedService.getTopRatedMovies().subscribe(response => {
+      this.movies = response.results;
+      console.log(this.movies);
+    });
   }
 
   refreshSelection() {
