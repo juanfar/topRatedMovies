@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MoviesCardListComponent } from './components/movies-card-list/movies-card-list.component';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 
 
@@ -11,7 +12,8 @@ import { MoviesCardListComponent } from './components/movies-card-list/movies-ca
     MoviesCardListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    InfiniteScrollModule 
   ],
   exports: [
     MovieCardComponent,

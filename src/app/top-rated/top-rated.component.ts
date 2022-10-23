@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from '../shared/models';
 import { TopRatedService } from './services/top-rated.service';
@@ -8,28 +8,25 @@ import { TopRatedService } from './services/top-rated.service';
   templateUrl: './top-rated.component.html',
   styleUrls: ['./top-rated.component.scss']
 })
-export class TopRatedComponent implements OnInit, OnDestroy {
+export class TopRatedComponent implements OnInit {
 
   subscription!: Subscription;
   movies!: Movie[];
+  movies$ = this.topRatedService.movies$;
+  pageNum = 1;
 
   constructor(
     private topRatedService: TopRatedService
   ) { }
 
   ngOnInit(): void {
-    this.getTopRatedMovies();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-  getTopRatedMovies() {
-    this.subscription = this.topRatedService.getTopRatedMovies().subscribe(response => {
-      this.movies = response.results;
-      console.log(this.movies);
-    });
+  onScrollDown(event: boolean): void {
+    if (event === true) {
+      this.pageNum ++;
+      this.topRatedService.getTopRatedMoviesByPage(this.pageNum);
+    }
   }
 
   refreshSelection() {

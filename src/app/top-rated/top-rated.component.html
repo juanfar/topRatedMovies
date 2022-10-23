@@ -16,6 +16,6 @@
     </mat-grid-tile>
   </mat-grid-list> -->
 
-  <app-movies-card-list [movies]="movies"></app-movies-card-list>
+  <app-movies-card-list [movies]="movies$ | async" (onBottom)="onScrollDown($event)"></app-movies-card-list>
 
 </main>
