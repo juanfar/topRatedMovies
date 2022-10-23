@@ -1,9 +1,11 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+const domain = 'api.themoviedb.org/3';
 
 export const environment = {
   production: false,
+  url: 'https://' + domain + '/movie',
   appKey: 'b194194954a1e2b3515bed02aa0f04c0'
 };
 

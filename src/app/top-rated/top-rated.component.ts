@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TopRatedService } from './services/top-rated.service';
 
 @Component({
   selector: 'app-top-rated',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopRatedComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private topRatedService: TopRatedService
+  ) { }
 
   ngOnInit(): void {
+    this.getTopRatedMovies();
+  }
+
+  getTopRatedMovies() {
+    this.topRatedService.getTopRatedMovies().subscribe(console.log);
   }
 
   refreshSelection() {
