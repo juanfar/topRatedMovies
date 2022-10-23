@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { SharedModule } from '../shared/shared.module';
 
 const MaterialModules = [
   MatToolbarModule,
@@ -21,6 +22,7 @@ const MaterialModules = [
   imports: [
     CommonModule,
     TopRatedRoutingModule,
+    SharedModule,
     MaterialModules
   ]
 })

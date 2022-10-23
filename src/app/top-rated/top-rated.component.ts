@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Movie } from '../shared/models';
 import { TopRatedService } from './services/top-rated.service';
 
@@ -7,8 +8,9 @@ import { TopRatedService } from './services/top-rated.service';
   templateUrl: './top-rated.component.html',
   styleUrls: ['./top-rated.component.scss']
 })
-export class TopRatedComponent implements OnInit {
+export class TopRatedComponent implements OnInit, OnDestroy {
 
+  subscription!: Subscription;
   movies!: Movie[];
 
   constructor(
@@ -19,8 +21,12 @@ export class TopRatedComponent implements OnInit {
     this.getTopRatedMovies();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   getTopRatedMovies() {
-    this.topRatedService.getTopRatedMovies().subscribe(response => {
+    this.subscription = this.topRatedService.getTopRatedMovies().subscribe(response => {
       this.movies = response.results;
       console.log(this.movies);
     });

@@ -1,0 +1,10 @@
+<article class="movie-card">
+  <figure class="movie-card__header">
+    <img loading="lazy" [src]="movieData.poster" [alt]="movieData.title">
+  </figure>
+  <div class="movie-card__average">{{movieData.average}}</div>
+  <div class="movie-card__footer">
+    <span class="title">{{movieData.title}}</span>
+    <span class="release_date">{{movieData.release_date}}</span>
+  </div>
+</article>
